@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ data.groom }} Weds {{ data.bride }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="invitation">
+        <h1>🌸 {{ data.groom }} & {{ data.bride }} 🌸</h1>
+        {% if data.cover_image_path %}
+    <img src="{{ url_for('static', filename='images/' + data.cover_image_path) }}" alt="Cover Image" width="300">
+{% else %}
+    <p><em>No cover image uploaded.</em></p>
+{% endif %}
+
+        <h2>📅 {{ data.wedding_date }}, {{ data.city }}</h2>
+        {% if data.story %}
+            <h3>💖 Our Story 💖</h3>
+            <p>{{ data.story }}</p>
+        {% endif %}
+        {% if data.events %}
+            <h3>📅 Wedding Events 📅</h3>
+            <ul>
+            {% for event in data.events %}
+                <li>🏵️ {{ event.name }} – {{ event.date }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        <h3>📍 Venue: {{ data.city }}</h3>
+        <p>🌿 Made with ❤️</p>
+    </div>
+    <a href="{{ url_for('index') }}"><button>⬅ Back to Home</button></a>
+</body>
+</html>

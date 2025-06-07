@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register Your Wedding Invitation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>💌 Fill in Your Wedding Details</h1>
+    <form action="{{ url_for('register') }}" method="post" enctype="multipart/form-data">
+        <label>Groom's Name:</label>
+        <input type="text" name="groom" required><br>
+
+        <label>Bride's Name:</label>
+        <input type="text" name="bride" required><br>
+
+        <label>Wedding Date:</label>
+        <input type="date" name="wedding_date" required><br>
+
+        <label>City:</label>
+        <input type="text" name="city" required><br>
+
+        <label>Our Story (Optional):</label>
+        <textarea name="story" placeholder="How you met, proposal, funny story..."></textarea><br>
+
+        <label>Cover Image (Couple's Photo):</label>
+        <input type="file" name="cover_image" accept="image/*" required><br>
+
+        <h3>Wedding Events</h3>
+        <label>Haldi Date (Optional):</label>
+        <input type="date" name="haldi_date"><br>
+
+        <label>Mehendi Date (Optional):</label>
+        <input type="date" name="mehendi_date"><br>
+
+        <label>Wedding Date (Again, Optional):</label>
+        <input type="date" name="wedding_date"><br>
+
+        <button type="submit">🎉 Generate My Invitation</button>
+    </form>
+    <a href="{{ url_for('index') }}"><button>⬅ Back to Home</button></a>
+</body>
+</html>
